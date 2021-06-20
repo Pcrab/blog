@@ -1,0 +1,3 @@
+[submodule "themes/quark"]
+	path = themes/quark
+	url = https://github.com/pcrab/hexo-theme-quark
