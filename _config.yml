@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: "Pcrab"
+subtitle: ""
+description: ""
 keywords:
 author: Pcrab
 language: en
-timezone: ''
+timezone: "Asia/Shanghai"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: htts://pcrab.xyz/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -92,3 +92,16 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: quark
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content: true
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+
+search:
+  path: search.xml
