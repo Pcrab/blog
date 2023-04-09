@@ -31,18 +31,20 @@ const post = getPostBySlug(slug);
         --shiki-token-punctuation: #e36209;
         --shiki-token-link: #0366d6;
     }
-    html.dark {
-        --shiki-color-text: #d1d5da;
-        /* --shiki-color-background: #333333; */
-        --shiki-token-constant: #79b8ff;
-        --shiki-token-string: #9ecbff;
-        --shiki-token-comment: #6a737d;
-        --shiki-token-keyword: #f97583;
-        --shiki-token-parameter: #e1e4e8;
-        --shiki-token-function: #cf8c8c;
-        --shiki-token-string-expression: #a7bbd2;
-        --shiki-token-punctuation: #e36209;
-        --shiki-token-link: #4487d4;
+    @media (prefers-color-scheme: dark) {
+        html {
+            --shiki-color-text: #d1d5da;
+            /* --shiki-color-background: #333333; */
+            --shiki-token-constant: #79b8ff;
+            --shiki-token-string: #9ecbff;
+            --shiki-token-comment: #6a737d;
+            --shiki-token-keyword: #f97583;
+            --shiki-token-parameter: #e1e4e8;
+            --shiki-token-function: #cf8c8c;
+            --shiki-token-string-expression: #a7bbd2;
+            --shiki-token-punctuation: #e36209;
+            --shiki-token-link: #4487d4;
+        }
     }
 </style>
 <Html title={post.title}>

@@ -1,0 +1,19 @@
+---
+const scrollCommonCss =
+    "select-none px-4 py-2 bg-gray-400 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700 border-none hover:border-none shadow-2xl text-xl";
+---
+
+<div class="fixed flex flex-col right-6 bottom-8" aria-hidden>
+    <button
+        class={`rounded-t-2xl ${scrollCommonCss}`}
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+        ▲
+    </button>
+    <button
+        class={`rounded-b-2xl ${scrollCommonCss}`}
+        onclick="window.scrollTo({top: document.documentElement.scrollHeight,behavior: 'smooth',});"
+    >
+        ▼
+    </button>
+</div>

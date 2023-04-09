@@ -1,43 +1,44 @@
-import { createEffect, createSignal, type JSXElement } from "solid-js";
+// import { createEffect, createSignal } from "solid-js";
+import type { JSXElement } from "solid-js";
 
 const FloatingBtns = (): JSXElement => {
     const scrollCommonCss =
         "select-none px-4 py-2 bg-gray-400 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700 border-none hover:border-none shadow-2xl text-xl";
-    const themeCommonCss =
-        "flex p-6 w-full h-8 text-lg items-center dark:hover:bg-gray-500 hover:bg-gray-300 ";
-    const [show, setShow] = createSignal(false);
-    const [innerClicked, setInnerClicked] = createSignal(false);
-    const [currentTheme, setCurrentTheme] = createSignal(
-        localStorage.getItem("theme") ?? "auto",
-    );
-    createEffect(() => {
-        document.documentElement.addEventListener("click", () => {
-            setTimeout(() => {
-                if (show() && innerClicked()) {
-                    setInnerClicked(false);
-                } else {
-                    setShow(false);
-                }
-            }, 0);
-        });
-    });
-    createEffect(() => {
-        if (currentTheme() === "light") {
-            document.documentElement.classList.remove("dark");
-        } else if (currentTheme() === "dark") {
-            document.documentElement.classList.add("dark");
-        } else {
-            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-                document.documentElement.classList.add("dark");
-            } else {
-                document.documentElement.classList.remove("dark");
-            }
-        }
-        localStorage.setItem("theme", currentTheme());
-    });
+    // const themeCommonCss =
+    //     "flex p-6 w-full h-8 text-lg items-center dark:hover:bg-gray-500 hover:bg-gray-300 ";
+    // const [show, setShow] = createSignal(false);
+    // const [innerClicked, setInnerClicked] = createSignal(false);
+    // const [currentTheme, setCurrentTheme] = createSignal(
+    //     localStorage.getItem("theme") ?? "auto",
+    // );
+    // createEffect(() => {
+    //     document.documentElement.addEventListener("click", () => {
+    //         setTimeout(() => {
+    //             if (show() && innerClicked()) {
+    //                 setInnerClicked(false);
+    //             } else {
+    //                 setShow(false);
+    //             }
+    //         }, 0);
+    //     });
+    // });
+    // createEffect(() => {
+    //     if (currentTheme() === "light") {
+    //         document.documentElement.classList.remove("dark");
+    //     } else if (currentTheme() === "dark") {
+    //         document.documentElement.classList.add("dark");
+    //     } else {
+    //         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    //             document.documentElement.classList.add("dark");
+    //         } else {
+    //             document.documentElement.classList.remove("dark");
+    //         }
+    //     }
+    //     localStorage.setItem("theme", currentTheme());
+    // });
     return (
         <div class="fixed flex flex-col right-6 bottom-8" aria-hidden>
-            <div
+            {/* <div
                 aria-hidden
                 class="relative m-auto mb-5 w-9 h-9 rounded-full border-4 border-gray-600 dark:border-gray-100 cursor-pointer bg-gradient-to-r from-gray-50 from-50% via-gray-600 via-50% to-gray-600 shadow"
                 onClick={(): void => {
@@ -121,7 +122,7 @@ const FloatingBtns = (): JSXElement => {
                         </button>
                     </div>
                 )}
-            </div>
+            </div> */}
             <button
                 class={`rounded-t-2xl ${scrollCommonCss}`}
                 onClick={(): void => {

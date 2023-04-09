@@ -3,7 +3,7 @@ import { BASE_URL, DESCRIPTION } from "../utils/constants";
 import buildTitle from "../utils/buildTitle";
 import Top from "@components/Top.astro";
 import Footer from "@components/Footer.astro";
-import FloatingBtns from "@components/FloatingBtns";
+import FloatingBtns from "@components/FloatingBtns.astro";
 interface Props {
     title?: string;
     url?: string;
@@ -64,7 +64,7 @@ const finalUrl = BASE_URL + (url ?? "");
             content="Pcrab, 博客, @Pcrab, Hexo, Astro, Web, blog, Front-End, 前端开发, Developer, JavaScript, Typescript, Life"
         />
         <link rel="canonical" href={finalUrl} />
-        <script>
+        <!-- <script>
             const localTheme = localStorage.getItem("theme") ?? "auto";
             if (
                 localTheme === "dark" ||
@@ -88,18 +88,28 @@ const finalUrl = BASE_URL + (url ?? "");
                         document.documentElement.classList.remove("dark");
                     }
                 });
-        </script>
-        <style is:global>
+        </script> -->
+        <style is:global is:inline>
             html {
                 margin-left: calc(100vw - 100%);
+                height: 100%;
+            }
+            body {
+                min-height: 100%;
+            }
+        </style>
+        <style is:global>
+            html {
                 --secondary: #dbd2d2;
                 --primary: #e3e3e3;
                 --normal: #b64444;
                 --hover: #df6666;
             }
-            html.dark {
-                --secondary: #797171;
-                --primary: #413e3e;
+            @media (prefers-color-scheme: dark) {
+                html {
+                    --secondary: #797171;
+                    --primary: #413e3e;
+                }
             }
             /* Scrollbar Color */
             * {
@@ -137,6 +147,6 @@ const finalUrl = BASE_URL + (url ?? "");
             <slot />
             <Footer />
         </main>
-        <FloatingBtns client:load />
+        <FloatingBtns />
     </body>
 </html>
