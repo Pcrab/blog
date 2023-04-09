@@ -1,0 +1,39 @@
+---
+import TitleInfo from "@components/TitleInfo";
+import Page from "@layouts/Page.astro";
+import { getAllTags, getTagByName } from "@utils/tag/get";
+import type { InferGetStaticParamsType } from "astro";
+
+export const getStaticPaths = () => {
+    const finalPaths: { params: { tagName: string; count: string } }[] = [];
+    getAllTags().forEach((tag) => {
+        const counts = tag.posts.length / 10 + 1;
+        Array.from({ length: counts }).forEach((_, index) => {
+            finalPaths.push({
+                params: {
+                    tagName: tag.name,
+                    count: (index + 1).toString(),
+                },
+            });
+        });
+    });
+    return finalPaths;
+};
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+const { tagName, count } = Astro.params as Params;
+const tag = getTagByName(tagName);
+---
+
+<Page
+    title={`标签：${tag.name}`}
+    current={parseInt(count)}
+    posts={tag.posts}
+    baseUrl={`/tag/${tag.name}/`}
+>
+    <TitleInfo>
+        <h1 class="flex items-center">
+            <p class="text-2xl mr-7 font-bold">标签：{tag.name}</p>
+            <p>共 {tag.posts.length} 篇文章</p>
+        </h1>
+    </TitleInfo>
+</Page>

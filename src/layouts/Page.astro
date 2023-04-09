@@ -1,0 +1,45 @@
+---
+import Pagination from "@components/Pagination";
+import Html from "./Html.astro";
+import type { Post } from "@utils/post/get";
+import PostCard from "@components/PostCard";
+interface Props {
+    title?: string;
+    baseUrl: string;
+    current: number;
+    numberPerPage?: number;
+    posts: Post[];
+}
+const {
+    title,
+    baseUrl,
+    posts,
+    current,
+    numberPerPage = 10,
+} = Astro.props as Props;
+const finalPosts = posts.slice(
+    (current - 1) * numberPerPage,
+    current * numberPerPage,
+);
+---
+
+<Html title={title ?? ""}>
+    <slot />
+    <div class="px-6 sm:px-2">
+        {
+            finalPosts.map((post) => {
+                return (
+                    <>
+                        <PostCard post={post} />
+                    </>
+                );
+            })
+        }
+    </div>
+    <Pagination
+        client:load
+        current={current}
+        total={Math.ceil(posts.length / numberPerPage)}
+        baseUrl={baseUrl}
+    />
+</Html>

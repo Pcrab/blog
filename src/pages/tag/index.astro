@@ -1,0 +1,35 @@
+---
+import Html from "@layouts/Html.astro";
+import { getAllTags } from "@utils/tag/get";
+const tags = getAllTags().map((tag, index) => {
+    return {
+        ...tag,
+        display: index.toString(),
+    };
+});
+---
+
+<Html title="标签">
+    <style>
+        a {
+            border: none;
+        }
+        a:hover {
+            border: none;
+        }
+    </style>
+    <h1 class="text-4xl my-10 font-bold"># 标签</h1>
+    <div class="flex flex-wrap">
+        {
+            tags.map((tag) => {
+                return (
+                    <a href={`/tag/${tag.name}/1`}>
+                        <div class="m-4 px-5 py-2 border-solid border-2 border-gray-400 rounded-full text-lg">
+                            {tag.name}
+                        </div>
+                    </a>
+                );
+            })
+        }
+    </div>
+</Html>

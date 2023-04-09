@@ -1,0 +1,142 @@
+---
+import { BASE_URL, DESCRIPTION } from "../utils/constants";
+import buildTitle from "../utils/buildTitle";
+import Top from "@components/Top.astro";
+import Footer from "@components/Footer.astro";
+import FloatingBtns from "@components/FloatingBtns";
+interface Props {
+    title?: string;
+    url?: string;
+}
+const { title, url } = Astro.props as Props;
+const finalTitle = buildTitle(title);
+const finalUrl = BASE_URL + (url ?? "");
+---
+
+<html lang="zh-cn" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{finalTitle}</title>
+        <meta name="description" content={DESCRIPTION} />
+
+        <meta name="format-detection" content="telephone=no" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+
+        <!-- Reduce dns request latency -->
+        <meta http-equiv="x-dns-prefetch-control" content="on" />
+
+        <meta property="og:site_name" content={finalTitle} />
+        <meta property="og:locale" content="zh-Hans" />
+        <meta property="og:description" content={DESCRIPTION} />
+        <meta property="og:url" content={finalUrl} />
+
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content={finalTitle} />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content={finalTitle} />
+
+        <meta name="generator" content={Astro.generator} />
+
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="icon" type="image/ico" href="/favicon.ico" />
+
+        <meta
+            name="keywords"
+            content="Pcrab, 博客, @Pcrab, Hexo, Astro, Web, blog, Front-End, 前端开发, Developer, JavaScript, Typescript, Life"
+        />
+        <link rel="canonical" href={finalUrl} />
+        <script>
+            const localTheme = localStorage.getItem("theme") ?? "auto";
+            if (
+                localTheme === "dark" ||
+                (localTheme !== "light" &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+            window
+                .matchMedia("(prefers-color-scheme: dark)")
+                .addEventListener("change", (e) => {
+                    const currentTheme = localStorage.getItem("theme");
+                    if (currentTheme === "dark" || currentTheme === "light") {
+                        return;
+                    }
+                    if (e.matches) {
+                        document.documentElement.classList.add("dark");
+                    } else {
+                        document.documentElement.classList.remove("dark");
+                    }
+                });
+        </script>
+        <style is:global>
+            html {
+                margin-left: calc(100vw - 100%);
+                --secondary: #dbd2d2;
+                --primary: #e3e3e3;
+                --normal: #b64444;
+                --hover: #df6666;
+            }
+            html.dark {
+                --secondary: #797171;
+                --primary: #413e3e;
+            }
+            /* Scrollbar Color */
+            * {
+                scrollbar-width: thin;
+                scrollbar-color: var(--secondary) var(--primary);
+            }
+
+            /* Chrome, Edge, and Safari */
+            *::-webkit-scrollbar {
+                width: 15px;
+            }
+
+            *::-webkit-scrollbar-track {
+                background: var(--primary);
+                border-radius: 5px;
+            }
+
+            *::-webkit-scrollbar-thumb {
+                background-color: var(--secondary);
+                border-radius: 14px;
+                border: 3px solid var(--primary);
+            }
+            a {
+                border-bottom: solid 1px var(--normal);
+                /* transition: all 1s linear; */
+            }
+            a:hover {
+                border-bottom: 2px solid var(--hover);
+            }
+        </style>
+    </head>
+    <body class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+        <main class="sm:px-5 md:w-4/5 max-w-4xl m-auto">
+            <Top />
+            <slot />
+            <Footer />
+        </main>
+        <FloatingBtns client:load />
+    </body>
+</html>

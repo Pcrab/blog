@@ -1,0 +1,26 @@
+{
+    "extends": "astro/tsconfigs/strictest",
+    "compilerOptions": {
+        "baseUrl": ".",
+        // Solid specific settings
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+        "verbatimModuleSyntax": true,
+        "plugins": [
+            {
+                "name": "@astrojs/ts-plugin"
+            }
+        ],
+        "paths": {
+            "@components/*": ["src/components/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@utils/*": ["src/utils/*"]
+        }
+    },
+    "include": [
+        "src/**/*.astro",
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "astro.config.ts"
+    ]
+}

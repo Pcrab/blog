@@ -1,0 +1,22 @@
+---
+import ComSvg from "./ComSvg.astro";
+import Github from "./svgs/github.svg";
+import Email from "./svgs/email.svg";
+import Telegram from "./svgs/telegram.svg";
+---
+
+<div id="footer" class="mb-20">
+    <div class="flex justify-center mt-10 mb-5">
+        <!--Github -->
+        <ComSvg alt="Github" url="https://github.com/Pcrab" svg={Github} />
+        <!-- Email -->
+        <ComSvg alt="Email" url="mailto:pcrab@pcrab.xyz" svg={Email} />
+        <!-- Telegram -->
+        <ComSvg alt="Telegram" url="https://t.me/Pcrab" svg={Telegram} />{" "}
+    </div>
+    <div class="text-center">
+        Copyright - © 2022 - 2023 - <a href="https://pcrab.xyz">Pcrab</a> - Powered
+        by <a href="https://hexo.io">Hexo</a> &{" "}
+        <a href="https://astro.build/">Astro</a>
+    </div>
+</div>

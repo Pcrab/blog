@@ -1,0 +1,13 @@
+---
+import { getAllPosts } from "@utils/post/get";
+import Page from "@layouts/Page.astro";
+
+const posts = getAllPosts().map((post, index) => {
+    return {
+        ...post,
+        display: index.toString(),
+    };
+});
+---
+
+<Page current={1} posts={posts} baseUrl="/page/" />

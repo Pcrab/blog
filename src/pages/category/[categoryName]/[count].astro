@@ -1,0 +1,40 @@
+---
+import TitleInfo from "@components/TitleInfo";
+import Page from "@layouts/Page.astro";
+import { getAllCategories, getCategoryByName } from "@utils/category/get";
+import type { InferGetStaticParamsType } from "astro";
+
+export const getStaticPaths = () => {
+    const finalPaths: { params: { categoryName: string; count: string } }[] =
+        [];
+    getAllCategories().forEach((category) => {
+        const counts = category.posts.length / 10 + 1;
+        Array.from({ length: counts }).forEach((_, index) => {
+            finalPaths.push({
+                params: {
+                    categoryName: category.name,
+                    count: (index + 1).toString(),
+                },
+            });
+        });
+    });
+    return finalPaths;
+};
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+const { categoryName, count } = Astro.params as Params;
+const category = getCategoryByName(categoryName);
+---
+
+<Page
+    title={`分类：${category.name}`}
+    current={parseInt(count)}
+    posts={category.posts}
+    baseUrl={`/category/${category.name}/`}
+>
+    <TitleInfo>
+        <h1 class="flex items-center">
+            <p class="text-2xl mr-7 font-bold">分类：{category.name}</p>
+            <p>共 {category.posts.length} 篇文章</p>
+        </h1>
+    </TitleInfo>
+</Page>

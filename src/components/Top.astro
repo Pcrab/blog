@@ -1,0 +1,32 @@
+---
+import buildTitle from "src/utils/buildTitle";
+---
+
+<div id="top" class="mt-20 w-full">
+    <div>
+        <img
+            class="m-auto"
+            src="/title.svg"
+            alt="Title"
+            width="150"
+            height="150"
+        />
+    </div>
+    <div class="font-bold m-auto text-center text-4xl my-5">
+        {buildTitle()}
+    </div>
+    <div class="sm:mx-2 mx-5 pb-5 flex justify-between font-bold">
+        <div class="">
+            <a href="/">主页</a>
+        </div>
+        <div class="">
+            <a href="/archive">归档</a>
+        </div>
+        <div class="">
+            <a href="/tag">标签</a>
+        </div>
+        <div class="">
+            <a href="https://pcrab.xyz">关于</a>
+        </div>
+    </div>
+</div>

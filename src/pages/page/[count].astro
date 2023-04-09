@@ -1,0 +1,29 @@
+---
+import type { InferGetStaticParamsType } from "astro";
+import { getAllPosts, getPostPageCount } from "@utils/post/get";
+import Page from "@layouts/Page.astro";
+export const getStaticPaths = () => {
+    const counts: number[] = Array.from<number>({
+        length: getPostPageCount(),
+    }).map((_, index) => {
+        return index + 1;
+    });
+    return counts.map((count) => {
+        return {
+            params: {
+                count: count.toString(),
+            },
+        };
+    });
+};
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+const { count } = Astro.params as Params;
+const posts = getAllPosts().map((post, index) => {
+    return {
+        ...post,
+        display: index.toString(),
+    };
+});
+---
+
+<Page current={parseInt(count, 10)} posts={posts} baseUrl="/page/" />
