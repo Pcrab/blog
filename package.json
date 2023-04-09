@@ -21,10 +21,12 @@
         "version": "7.0.0-rc1"
     },
     "dependencies": {
+        "@astrojs/sitemap": "^1.2.2",
         "@astrojs/solid-js": "^2.1.0",
         "@astrojs/tailwind": "^3.1.1",
         "@tailwindcss/typography": "^0.5.9",
         "astro": "^2.2.0",
+        "astro-robots-txt": "^0.4.1",
         "dayjs": "^1.11.7",
         "hexo": "7.0.0-rc1",
         "hexo-highlight-shiki": "^1.2.3",
