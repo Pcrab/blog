@@ -61,7 +61,7 @@ const PostCard = (props: { post: Post }): JSXElement => {
             <div class="flex my-3 flex-wrap">
                 {post.category && (
                     <a
-                        class="mr-5 border-none hover:border-none text-[color:var(--normal)] hover:text-[color:var(--hover)] dark:text-[color:var(--hover)] dark:hover:text-[color:var(--normal)] font-bold"
+                        class="mr-5 text-[color:var(--normal)] hover:text-[color:var(--hover)] dark:text-[color:var(--hover)] dark:hover:text-[color:var(--normal)] font-bold"
                         href={`/category/${post.category}/1`}
                     >
                         {post.category}
@@ -69,14 +69,17 @@ const PostCard = (props: { post: Post }): JSXElement => {
                 )}
                 {post.tags.map((tag) => (
                     <a
-                        class="text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 font-bold mr-5 border-none hover:border-none"
+                        class="text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 font-bold mr-5"
                         href={`/tag/${tag}/1`}
                     >
                         {tag}
                     </a>
                 ))}
             </div>
-            <div innerHTML={post.excerpt}></div>
+            <div
+                class="prose-a:border-b-2 prose-a:border-b-[color:var(--normal)] hover:prose-a:border-b-[color:var(--hover)]"
+                innerHTML={post.excerpt}
+            ></div>
             <div class="mt-3 font-bold">
                 <a href={jumpUrl}>阅读更多 ...</a>
             </div>

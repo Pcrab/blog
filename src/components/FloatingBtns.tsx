@@ -3,7 +3,7 @@ import type { JSXElement } from "solid-js";
 
 const FloatingBtns = (): JSXElement => {
     const scrollCommonCss =
-        "select-none px-4 py-2 bg-gray-400 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700 border-none hover:border-none shadow-2xl text-xl";
+        "select-none px-4 py-2 bg-gray-400 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700 shadow-2xl text-xl";
     // const themeCommonCss =
     //     "flex p-6 w-full h-8 text-lg items-center dark:hover:bg-gray-500 hover:bg-gray-300 ";
     // const [show, setShow] = createSignal(false);

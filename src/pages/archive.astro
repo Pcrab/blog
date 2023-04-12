@@ -10,11 +10,11 @@ const posts = getAllPosts();
         {
             posts.map((post) => {
                 return (
-                    <div class="py-6 sm:py-2 dark:border-gray-500 border-gray-300 border-t border-b first:border-t-2 last:border-b-2">
-                        <a
-                            class="flex justify-between sm:flex-col border-none hover:border-none hover:text-gray-400 items-center sm:items-start"
-                            href={`/post/${post.slug}`}
-                        >
+                    <a
+                        class="py-6 sm:py-2 dark:border-gray-500 border-gray-300 border-t border-b first:border-t-2 last:border-b-2 hover:text-gray-400 "
+                        href={`/post/${post.slug}`}
+                    >
+                        <div class="flex justify-between sm:flex-col items-center sm:items-start">
                             <div class="sm:order-2 sm:ml-8 text-lg">
                                 {post.title}
                             </div>
@@ -23,8 +23,8 @@ const posts = getAllPosts();
                                 {` ${post.date.format("YYYY 年 MM 月 DD 日")} `}
                                 <b>」</b>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 );
             })
         }
