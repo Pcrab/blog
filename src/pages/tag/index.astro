@@ -23,8 +23,11 @@ const tags = getAllTags().map((tag, index) => {
         {
             tags.map((tag) => {
                 return (
-                    <a href={`/tag/${tag.name}/1`}>
-                        <div class="m-4 px-5 py-2 border-solid border-2 border-gray-400 rounded-full text-lg">
+                    <a
+                        href={`/tag/${tag.name}/1`}
+                        class="border-none hover:border-none"
+                    >
+                        <div class="m-4 px-5 py-2 border-solid border-2 border-gray-400 hover:border-gray-600 hover:text-gray-400 rounded-full text-lg">
                             {tag.name}
                         </div>
                     </a>
