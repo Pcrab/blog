@@ -30,7 +30,7 @@
         "dayjs": "^1.11.7",
         "hexo": "7.0.0-rc1",
         "hexo-highlight-shiki": "^1.3.3",
-        "hexo-renderer-djot": "^0.0.1",
+        "hexo-renderer-marked": "^6.0.0",
         "node-html-parser": "^6.1.5",
         "posthtml": "^0.16.6",
         "solid-js": "^1.7.2",
