@@ -58,8 +58,8 @@ devDependencies:
     specifier: ^0.5.1
     version: 0.5.1(eslint@8.37.0)(prettier@2.8.7)(typescript@5.0.3)
   '@pcrab/prettier-config':
-    specifier: ^0.1.0
-    version: 0.1.0
+    specifier: ^0.2.0
+    version: 0.2.0
   '@types/node':
     specifier: ^18.15.11
     version: 18.15.11
@@ -1018,8 +1018,8 @@ packages:
       - supports-color
     dev: true
 
-  /@pcrab/prettier-config@0.1.0:
-    resolution: {integrity: sha512-5DC6HG7I1wm90DsD0o/2ToeC7OG3nwL4WdDqDDCSyR9eOfT62RlKEQwjPQZLVFk5t+sorekUW1/b6p4/9ZucZQ==}
+  /@pcrab/prettier-config@0.2.0:
+    resolution: {integrity: sha512-grAUdWoYvBPVmrblMc0nZhkWc6wjIRRIx7jSy12KMDUt/FbOk3Ww2a+j7SvP9XdMYV0nxY2fDHW5bJYIvGxRLw==}
     dev: true
 
   /@pkgr/utils@2.3.1:
