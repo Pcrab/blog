@@ -41,7 +41,7 @@
         "@commitlint/cli": "^17.5.1",
         "@commitlint/config-conventional": "^17.4.4",
         "@pcrab/eslint-config": "^0.5.1",
-        "@pcrab/prettier-config": "^0.1.0",
+        "@pcrab/prettier-config": "^0.2.0",
         "@types/node": "^18.15.11",
         "@typescript-eslint/parser": "^5.57.1",
         "commitizen": "^4.3.0",
