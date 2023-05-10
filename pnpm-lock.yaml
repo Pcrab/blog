@@ -55,8 +55,8 @@ devDependencies:
     specifier: ^17.4.4
     version: 17.4.4
   '@pcrab/eslint-config':
-    specifier: ^0.5.1
-    version: 0.5.1(eslint@8.37.0)(prettier@2.8.7)(typescript@5.0.3)
+    specifier: ^0.6.0
+    version: 0.6.0(eslint@8.37.0)(prettier@2.8.7)(typescript@5.0.3)
   '@pcrab/prettier-config':
     specifier: ^0.2.0
     version: 0.2.0
@@ -985,8 +985,8 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
-  /@pcrab/eslint-config@0.5.1(eslint@8.37.0)(prettier@2.8.7)(typescript@5.0.3):
-    resolution: {integrity: sha512-7QT4Qvx5MfBOajFY37e6nRKzqH0rLa2ZdewvRvMr9uqPmwuUKojc9TwsdsCQdF7sUdZTZzRovBscy6Zxj62JwQ==}
+  /@pcrab/eslint-config@0.6.0(eslint@8.37.0)(prettier@2.8.7)(typescript@5.0.3):
+    resolution: {integrity: sha512-Oft4ktG0DMH90qaiI102wWk4HJUiKcq2h6rpeS6Ge8BeRFTmyvScDBqa/d+pH7GtoFRWXw26FCkVH1n5s208AA==}
     requiresBuild: true
     peerDependencies:
       eslint: '>=7.2.0'
