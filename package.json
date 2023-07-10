@@ -43,7 +43,7 @@
         "@pcrab/eslint-config": "^0.7.0",
         "@pcrab/prettier-config": "^0.2.0",
         "@types/node": "^18.15.11",
-        "@typescript-eslint/parser": "^5.57.1",
+        "@typescript-eslint/parser": "^6.0.0",
         "commitizen": "^4.3.0",
         "cz-conventional-changelog": "^3.3.0",
         "eslint": "^8.37.0",
