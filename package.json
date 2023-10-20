@@ -38,8 +38,8 @@
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.1.1",
-    "@commitlint/cli": "^17.6.7",
-    "@commitlint/config-conventional": "^17.6.7",
+    "@commitlint/cli": "^18.0.0",
+    "@commitlint/config-conventional": "^18.0.0",
     "@pcrab/eslint-config": "^0.7.3",
     "@pcrab/prettier-config": "^0.2.0",
     "@types/node": "^20.4.7",
