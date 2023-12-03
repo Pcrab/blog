@@ -4,11 +4,11 @@
 
 # Site
 title: "Pcrab's blog"
-subtitle: ''
-description: 'Pcrab 的博客站点，是码农，内容主要以技术为主'
+subtitle: ""
+description: "Pcrab 的博客站点，是码农，内容主要以技术为主"
 author: Pcrab
 language: zh-cn
-timezone: 'Asia/Shanghai'
+timezone: "Asia/Shanghai"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -17,8 +17,8 @@ root: "/"
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+    trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+    trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -35,9 +35,9 @@ new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:
-  enable: true # Open external links in new tab
-  field: site # Apply to the whole site
-  exclude: ''
+    enable: true # Open external links in new tab
+    field: site # Apply to the whole site
+    exclude: ""
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
@@ -45,19 +45,19 @@ relative_link: false
 future: true
 syntax_highlighter: "shiki"
 highlight:
-  auto_detect: false
-  line_number: true
-  tab_replace: ''
-  wrap: true
-  exclude_languages:
-  language_attr: false
-  hljs: false
+    auto_detect: false
+    line_number: true
+    tab_replace: ""
+    wrap: true
+    exclude_languages:
+    language_attr: false
+    hljs: false
 prismjs:
-  preprocess: true
-  line_number: true
-  tab_replace: ''
+    preprocess: true
+    line_number: true
+    tab_replace: ""
 shiki:
-  theme: "css-variables"
+    theme: "css-variables"
 
 # Category & Tag
 default_category: uncategorized
@@ -75,7 +75,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'mtime'
+updated_option: "mtime"
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -94,26 +94,26 @@ deploy:
 ignore:
 
 mathjax:
-  tags: none # or 'ams' or 'all'
-  single_dollars: true # enable single dollar signs as in-line math delimiters
-  cjk_width: 0.9 # relative CJK char width
-  normal_width: 0.6 # relative normal (monospace) width
-  append_css: true # add CSS to pages rendered by MathJax
-  every_page: false # if true, every page will be rendered by MathJax regardless the `mathjax` setting in Front-matter
-  packages: # extra packages to load
-  extension_options: {}
+    tags: none # or 'ams' or 'all'
+    single_dollars: true # enable single dollar signs as in-line math delimiters
+    cjk_width: 0.9 # relative CJK char width
+    normal_width: 0.6 # relative normal (monospace) width
+    append_css: true # add CSS to pages rendered by MathJax
+    every_page: false # if true, every page will be rendered by MathJax regardless the `mathjax` setting in Front-matter
+    packages: # extra packages to load
+    extension_options: {}
 
 marked:
-  gfm: true
-  breaks: false
-  prependRoot: true
-  postAsset: true
+    gfm: true
+    breaks: false
+    prependRoot: true
+    postAsset: true
 
 feed:
-  enable: true
+    enable: true
 
 robotstxt:
-  disallow:
-    - ""
-  sitemap: 
-    - https://pcrab.xyz/sitemap.xml
+    disallow:
+        - ""
+    sitemap:
+        - https://pcrab.xyz/sitemap.xml

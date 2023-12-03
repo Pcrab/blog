@@ -20,13 +20,7 @@ const finalUrl = BASE_URL + (url ?? "");
         <meta name="description" content={DESCRIPTION} />
 
         <meta name="format-detection" content="telephone=no" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, viewport-fit=cover"
-        />
-
-        <!-- Reduce dns request latency -->
-        <meta http-equiv="x-dns-prefetch-control" content="on" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
         <meta property="og:site_name" content={finalTitle} />
         <meta property="og:locale" content="zh-Hans" />
@@ -40,23 +34,9 @@ const finalUrl = BASE_URL + (url ?? "");
 
         <meta name="generator" content={Astro.generator} />
 
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-touch-icon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon-16x16.png"
-        />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="icon" type="image/ico" href="/favicon.ico" />
         <link rel="sitemap" href="/sitemap-index.xml" />
 
@@ -65,42 +45,13 @@ const finalUrl = BASE_URL + (url ?? "");
             content="Pcrab, 博客, @Pcrab, Hexo, Astro, Web, blog, Front-End, 前端开发, Developer, JavaScript, Typescript, Life"
         />
         <link rel="canonical" href={finalUrl} />
-        <!-- <script>
-            const localTheme = localStorage.getItem("theme") ?? "auto";
-            if (
-                localTheme === "dark" ||
-                (localTheme !== "light" &&
-                    window.matchMedia("(prefers-color-scheme: dark)").matches)
-            ) {
-                document.documentElement.classList.add("dark");
-            } else {
-                document.documentElement.classList.remove("dark");
-            }
-            window
-                .matchMedia("(prefers-color-scheme: dark)")
-                .addEventListener("change", (e) => {
-                    const currentTheme = localStorage.getItem("theme");
-                    if (currentTheme === "dark" || currentTheme === "light") {
-                        return;
-                    }
-                    if (e.matches) {
-                        document.documentElement.classList.add("dark");
-                    } else {
-                        document.documentElement.classList.remove("dark");
-                    }
-                });
-        </script> -->
-        <style is:global is:inline>
-            html {
-                margin-left: calc(100vw - 100%);
-            }
-        </style>
+
         <style is:global>
             html {
                 --secondary: #dbd2d2;
                 --primary: #e3e3e3;
-                --normal: #b64444;
-                --hover: #df6666;
+                --normal: #8b3737;
+                --hover: #eda1a1;
             }
             @media (prefers-color-scheme: dark) {
                 html {
@@ -132,7 +83,7 @@ const finalUrl = BASE_URL + (url ?? "");
         </style>
     </head>
     <body class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
-        <main class="sm:px-5 md:w-4/5 max-w-4xl m-auto">
+        <main class="sm:px-5 px-2 md:w-4/5 max-w-4xl m-auto">
             <Top />
             <slot />
             <Footer />

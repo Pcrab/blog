@@ -7,8 +7,6 @@ interface Props {
 const { alt, url, svg } = Astro.props as Props;
 ---
 
-<div class="sm:mx-8 md: mx-20 lg:mx-32">
-    <a target="_blank" href={url}>
-        <img class="dark:invert" width="25" height="25" src={svg} alt={alt} />
-    </a>
-</div>
+<a class="mx-8 md:mx-20 lg:mx-28" target="_blank" href={url}>
+    <img class="dark:invert" width="25" height="25" src={svg} alt={alt} />
+</a>

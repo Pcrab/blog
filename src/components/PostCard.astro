@@ -1,0 +1,51 @@
+---
+import type { Post } from "src/utils/post/get";
+
+interface Props {
+    post: Post;
+}
+
+const { post } = Astro.props;
+const date = post.date;
+const jumpUrl = `/post/${post.slug}`;
+---
+
+<div
+    class="my-10 bg-gray-200 dark:bg-gray-700 lg:py-10 lg:px-20 sm:py-4 sm:px-8 px-4 py-2 rounded-xl hover:shadow-lg duration-300"
+>
+    <div class="relative -left-4 lg:-left-8">
+        <b>「</b>
+        {` ${date.format("YYYY 年 MM 月 DD 日")} `}
+        <b>」</b>
+    </div>
+    <a class="font-bold text-2xl my-2 block hover:text-shadow duration-300" href={jumpUrl}>
+        {post.title}
+    </a>
+    <div class="flex my-3 flex-wrap">
+        {
+            post.category && (
+                <a
+                    class="mr-5 text-[color:var(--normal)] hover:text-[color:var(--hover)] dark:text-[color:var(--hover)] dark:hover:text-[color:var(--normal)] font-bold duration-300"
+                    href={`/category/${post.category}/1`}
+                >
+                    {post.category}
+                </a>
+            )
+        }
+        {
+            post.tags.map((tag) => (
+                <a
+                    class="text-gray-600 hover:text-gray-300 dark:text-gray-300 dark:hover:text-gray-500 font-bold mr-5 duration-300"
+                    href={`/tag/${tag}/1`}
+                >
+                    {tag}
+                </a>
+            ))
+        }
+    </div>
+    <div
+        class="prose-a:border-b-2 prose-a:border-b-[color:var(--normal)] hover:prose-a:border-b-[color:var(--hover)]"
+        set:html={post.excerpt}
+    />
+    <a class="inline-block pt-3 font-bold hover:text-shadow duration-300" href={`${jumpUrl}#more`}> 阅读更多 ...</a>
+</div>

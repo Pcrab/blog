@@ -45,9 +45,7 @@ const getAllPosts = (): Post[] => {
         const postIds = db.PostTag.filter((postTag) => {
             return tag._id === postTag.tag_id;
         }).map((postTag) => postTag.post_id);
-        const postWithThisTag = posts.filter((post) =>
-            postIds.includes(post._id),
-        );
+        const postWithThisTag = posts.filter((post) => postIds.includes(post._id));
         postWithThisTag.forEach((post) => {
             post.tags.push(tag.name);
         });
@@ -58,9 +56,7 @@ const getAllPosts = (): Post[] => {
         const postIds = db.PostCategory.filter((postCategory) => {
             return category._id === postCategory.category_id;
         }).map((postCategory) => postCategory.post_id);
-        const postWithThisCategory = posts.filter((post) =>
-            postIds.includes(post._id),
-        );
+        const postWithThisCategory = posts.filter((post) => postIds.includes(post._id));
         postWithThisCategory.forEach((post) => {
             post.category = category.name;
         });
@@ -94,11 +90,4 @@ const getPagePosts = (count: number): Post[] => {
 };
 
 export type { Post };
-export {
-    getAllPosts,
-    getAllPostSlugs,
-    getLatestPosts,
-    getPostBySlug,
-    getPostPageCount,
-    getPagePosts,
-};
+export { getAllPosts, getAllPostSlugs, getLatestPosts, getPostBySlug, getPostPageCount, getPagePosts };

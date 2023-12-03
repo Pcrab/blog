@@ -1,7 +1,7 @@
 ---
 title: 如何生成符合 ISO 标准的日期字符串
 date: 2023-05-05 10:56:21
-tags: [ "ISO", "Node.js" ]
+tags: ["ISO", "Node.js"]
 category: "技术向"
 ---
 
@@ -20,27 +20,23 @@ category: "技术向"
 挂掉的用例是这样的：
 
 ```javascript
-it('date', () => {
-  const unixTime = Date.now();
-  const stringifyDateTime = new Date(unixTime)
-    .toLocaleString(
-      'en-CA', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        hour12: false,
-        minute: '2-digit',
-        second: '2-digit'
-      }
-    ).replace(/,/g, '');
+it("date", () => {
+    const unixTime = Date.now();
+    const stringifyDateTime = new Date(unixTime)
+        .toLocaleString("en-CA", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            hour12: false,
+            minute: "2-digit",
+            second: "2-digit",
+        })
+        .replace(/,/g, "");
 
-  const str = [
-    `date: ${stringifyDateTime}`,
-    '---'
-  ].join('\n');
-  const data = yfm.parse(str);
-  parseInt(data.date.getTime() / 1000, 10).should.eql(parseInt(unixTime / 1000, 10));
+    const str = [`date: ${stringifyDateTime}`, "---"].join("\n");
+    const data = yfm.parse(str);
+    parseInt(data.date.getTime() / 1000, 10).should.eql(parseInt(unixTime / 1000, 10));
 });
 ```
 
@@ -69,18 +65,15 @@ it('date', () => {
 将代码修改为
 
 ```javascript
-it('date', () => {
-  const current = new Date();
-  const unixTime = current.getTime();
-  const stringifyDateTime = new Date(current.getTime() - (current.getTimezoneOffset() * 60 * 1000)).toJSON();
+it("date", () => {
+    const current = new Date();
+    const unixTime = current.getTime();
+    const stringifyDateTime = new Date(current.getTime() - current.getTimezoneOffset() * 60 * 1000).toJSON();
 
-  const str = [
-    `date: ${stringifyDateTime}`,
-    '---'
-  ].join('\n');
+    const str = [`date: ${stringifyDateTime}`, "---"].join("\n");
 
-  const data = yfm.parse(str);
-  parseInt(data.date.getTime() / 1000, 10).should.eql(parseInt(unixTime / 1000, 10));
+    const data = yfm.parse(str);
+    parseInt(data.date.getTime() / 1000, 10).should.eql(parseInt(unixTime / 1000, 10));
 });
 ```
 
@@ -142,7 +135,6 @@ const result2 = new Date().toJSON();
 
 影响到的 `node` 版本为：
 
-- ^18.13.0
-- ^19.1.0
-- 20.0.0
-
+-   ^18.13.0
+-   ^19.1.0
+-   20.0.0

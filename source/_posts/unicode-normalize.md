@@ -20,7 +20,7 @@ const string2 = "cafe\u{301}";
 
 // false
 // \u{e9} !== e
-console.log(string1 === string2)
+console.log(string1 === string2);
 ```
 
 因此，可以通过归一化来使所有的字符串中的 Unicode 以同一种方式表示，防止出现这种情况。
@@ -31,7 +31,7 @@ const string2 = "cafe\u{301}".normalize();
 
 // true
 // string1 === string2 === "caf\u{e9}"
-console.log(string1 === string2)
+console.log(string1 === string2);
 ```
 
 `normalize` 函数也能接受一个参数，用来指明具体归一化到哪一种表达形式。包括

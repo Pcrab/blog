@@ -29,17 +29,17 @@ tags: ["blog"]
 
 ```css
 :root {
-  --bg: #fff;
+    --bg: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #000;
-  }
+    :root {
+        --bg: #000;
+    }
 }
 
 body {
-  background-color: var(--bg);
+    background-color: var(--bg);
 }
 ```
 
@@ -49,13 +49,13 @@ body {
 
 ```css
 body {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #000;
-  }
+    body {
+        background-color: #000;
+    }
 }
 ```
 
@@ -64,20 +64,20 @@ body {
 使用例如 [tailwindcs](https://tailwindcss.com) 等 CSS 框架，实现深色模式。
 
 ```html
-<div class="bg-white dark:bg-black">
+<div class="bg-white dark:bg-black"></div>
 ```
 
 最后生成如下的 CSS
 
 ```css
 .bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 :is(.dark .dark\:bg-black) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 ```
 
@@ -97,7 +97,7 @@ body {
 想到将这一状态存在 `localStorage` 中，在网页加载时读取并提供对应的 CSS。要实现这一功能其实并不难，一段简单的 javascript 代码就能够完成。
 
 ```typescript
-const theme = localStorage.getItem("theme") ?? "auto"
+const theme = localStorage.getItem("theme") ?? "auto";
 switch (theme) {
     case "light":
         document.documentElement.classList.remove("dark");
@@ -136,9 +136,7 @@ const matchFunc = (e: MediaQueryListEvent): void => {
 };
 
 useEffect(() => {
-    window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", matchFunc);
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", matchFunc);
 }, []);
 ```
 
@@ -155,15 +153,17 @@ useEffect(() => {
 
 ```html
 <head>
-  <script>
-    try {
-      var e=localStorage.theme;e==="dark"
-        ? document.documentElement.classList.add("dark")
-        : e === "auto"
-        ? (window.matchMedia("(prefers-color-scheme: dark)").matches && document.documentElement.classList.add("dark"))
-        : "";
-    } catch(e) {}
-  </script>
+    <script>
+        try {
+            var e = localStorage.theme;
+            e === "dark"
+                ? document.documentElement.classList.add("dark")
+                : e === "auto"
+                  ? window.matchMedia("(prefers-color-scheme: dark)").matches &&
+                    document.documentElement.classList.add("dark")
+                  : "";
+        } catch (e) {}
+    </script>
 </head>
 ```
 

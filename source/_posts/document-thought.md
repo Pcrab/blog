@@ -1,9 +1,7 @@
 ---
 title: 对文档的一些思考
 date: 2022-11-01 13:31:49
-tags: [
-    "document",
-]
+tags: ["document"]
 category: "思考分享"
 ---
 

@@ -1,11 +1,5 @@
 import db from "../../db.json";
-import type {
-    CategorySchema,
-    PostSchema,
-    PostCategorySchema,
-    PostTagSchema,
-    TagSchema,
-} from "./schemas";
+import type { CategorySchema, PostSchema, PostCategorySchema, PostTagSchema, TagSchema } from "./schemas";
 
 interface Database {
     Post: PostSchema[];

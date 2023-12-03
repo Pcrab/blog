@@ -1,12 +1,12 @@
 module.exports = {
-    ...require("@pcrab/prettier-config"),
+    ...require("@pcrab/configs-prettier"),
     plugins: [require.resolve("prettier-plugin-astro")],
     overrides: [
         {
             files: "*.astro",
             options: {
-                parser: "astro"
-            }
-        }
-    ]
+                parser: "astro",
+            },
+        },
+    ],
 };

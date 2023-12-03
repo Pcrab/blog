@@ -3,36 +3,32 @@ import ComSvg from "./ComSvg.astro";
 import Github from "./svgs/github.svg";
 import Email from "./svgs/email.svg";
 import Telegram from "./svgs/telegram.svg";
----
 
-<style>
-    a {
-        border-bottom: 2px solid var(--normal);
-    }
-    a:hover {
-        border-bottom: 2px solid var(--hover);
-    }
-</style>
+const aClass = "b-b-[--normal] b-b-2 b-b-solid hover:b-b-[--hover] duration-200";
+---
 
 <div id="footer" class="pb-20">
     <div class="flex justify-center mt-10 mb-5">
         <!--Github -->
-        <ComSvg alt="Github" url="https://github.com/Pcrab" svg={Github} />
+        <ComSvg alt="Github" url="https://github.com/Pcrab" svg={Github.src} />
         <!-- Email -->
-        <ComSvg alt="Email" url="mailto:pcrab@pcrab.xyz" svg={Email} />
+        <ComSvg alt="Email" url="mailto:pcrab@pcrab.xyz" svg={Email.src} />
         <!-- Telegram -->
-        <ComSvg alt="Telegram" url="https://t.me/Pcrab" svg={Telegram} />{" "}
+        <ComSvg alt="Telegram" url="https://t.me/Pcrab" svg={Telegram.src} />
     </div>
     <div class="text-center">
-        Copyright - © 2022 - 2023 - <a href="https://pcrab.xyz">Pcrab</a> - Powered
-        by <a href="https://hexo.io">Hexo</a> &{" "}
-        <a href="https://astro.build/">Astro</a>
+        Copyright - © 2022 - 2023 - <a class={aClass} href="https://pcrab.xyz">Pcrab</a> - Powered by <a
+            href="https://hexo.io"
+            class={aClass}>Hexo</a
+        > &{" "}
+        <a class={aClass} href="https://astro.build/">Astro</a>
     </div>
-    <div class="flex justify-center mt-2">
-        <a
-            class="text-center"
-            href="https://icp.gov.moe/?keyword=20237170"
-            target="_blank">萌ICP备20237170号</a
+    <div class="flex justify-center items-end mt-2">
+        <a class={"mt-2 mr-5 w-fit text-center " + aClass} href="https://icp.gov.moe/?keyword=20237170" target="_blank"
+            >萌ICP备20237170号</a
+        >
+        <a href="https://myssl.com/blog.pcrab.xyz?from=mysslid" aria-label="My SSL Label"
+            ><img class="h-10 aspect-ratio-19/10" src="https://static.myssl.com/res/images/myssl-id3.png" alt="" /></a
         >
     </div>
 </div>

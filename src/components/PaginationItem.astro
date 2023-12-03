@@ -1,0 +1,12 @@
+---
+interface Props {
+    url: string;
+    selected: boolean;
+    content: string;
+}
+const { url, selected, content } = Astro.props;
+---
+
+<div class="mx-4">
+    {selected ? <div>{content}</div> : <a href={url}>{content}</a>}
+</div>

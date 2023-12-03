@@ -2,7 +2,7 @@ import Hexo from "hexo";
 import { existsSync, unlinkSync } from "fs";
 import { join } from "path";
 
-const BASE_URL = "https://pcrab.xyz";
+// const BASE_URL = "https://pcrab.xyz";
 
 // const isExternal = (url) => {
 //     if (url.beginWith(BASE_URL) || url.beginWith("/")) {
@@ -29,7 +29,7 @@ const main = async () => {
     hexo.extend.filter.register("marked:renderer", (renderer) => {
         renderer.link = (href, _, text) => {
             return `<a href="${href}" target="_blank">${text}</a>`;
-        }
+        };
 
         return renderer;
     });

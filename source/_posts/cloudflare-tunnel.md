@@ -1,7 +1,7 @@
 ---
 title: 使用 Cloudflare Tunnel 保护服务器
 date: 2023-03-06 20:13:54
-tags: [ "server", "cloudflare", "security" ]
+tags: ["server", "cloudflare", "security"]
 category: "技术向"
 ---
 
@@ -46,7 +46,7 @@ tunnel:
     restart: unless-stopped
     command: tunnel run
     environment:
-      TUNNEL_TOKEN: "TOKEN JUST GOT"
+        TUNNEL_TOKEN: "TOKEN JUST GOT"
 ```
 
 由于 Cloudflare Tunnels 无法做到如 Nginx 一样根据不同的 path 转发到不同端口，因此如果有类似需求，可以在 docker 中再运行一个 nginx，

@@ -1,7 +1,8 @@
 {
-    "extends": "astro/tsconfigs/strictest",
+    "extends": ["@pcrab/configs-ts", "astro/tsconfigs/strictest"],
     "compilerOptions": {
         "baseUrl": ".",
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
         // Solid specific settings
         "jsx": "preserve",
         "jsxImportSource": "solid-js",
@@ -17,10 +18,5 @@
             "@utils/*": ["src/utils/*"]
         }
     },
-    "include": [
-        "src/**/*.astro",
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "astro.config.ts"
-    ]
+    "include": ["src/**/*.astro", "src/**/*.ts", "src/**/*.tsx", "astro.config.ts"]
 }
