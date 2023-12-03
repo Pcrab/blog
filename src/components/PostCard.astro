@@ -7,7 +7,7 @@ interface Props {
 
 const { post } = Astro.props;
 const date = post.date;
-const jumpUrl = `/post/${post.slug}`;
+const jumpUrl = `/post/${post.slug}/`;
 ---
 
 <div
@@ -26,7 +26,7 @@ const jumpUrl = `/post/${post.slug}`;
             post.category && (
                 <a
                     class="mr-5 text-[color:var(--normal)] hover:text-[color:var(--hover)] dark:text-[color:var(--hover)] dark:hover:text-[color:var(--normal)] font-bold duration-300"
-                    href={`/category/${post.category}/1`}
+                    href={`/category/${post.category}/1/`}
                 >
                     {post.category}
                 </a>
@@ -36,7 +36,7 @@ const jumpUrl = `/post/${post.slug}`;
             post.tags.map((tag) => (
                 <a
                     class="text-gray-600 hover:text-gray-300 dark:text-gray-300 dark:hover:text-gray-500 font-bold mr-5 duration-300"
-                    href={`/tag/${tag}/1`}
+                    href={`/tag/${tag}/1/`}
                 >
                     {tag}
                 </a>

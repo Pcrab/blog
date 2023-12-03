@@ -27,7 +27,7 @@ if (current < 3) {
             {Array.from({ length: total }).map((_, index) => {
                 return (
                     <PaginationItem
-                        url={`${baseUrl}${index + 1}`}
+                        url={`${baseUrl}${index + 1}/`}
                         selected={current === index + 1}
                         content={(index + 1).toString()}
                     />
@@ -36,17 +36,13 @@ if (current < 3) {
         </div>
     ) : (
         <div class="flex justify-center">
-            <PaginationItem url={`${baseUrl}1`} selected={current === 1} content={"1"} />
+            <PaginationItem url={`${baseUrl}1/`} selected={current === 1} content={1} />
             {current > 3 && "..."}
             {contents.map((index) => (
-                <PaginationItem url={`${baseUrl}${index}`} selected={index === 1} content={index.toString()} />
+                <PaginationItem url={`${baseUrl}${index}/`} selected={index === 1} content={index} />
             ))}
             {current < total - 3 && "..."}
-            <PaginationItem
-                url={`${baseUrl}${total}`}
-                selected={current === contents.length}
-                content={total.toString()}
-            />
+            <PaginationItem url={`${baseUrl}${total}/`} selected={current === contents.length} content={total} />
         </div>
     )
 }
