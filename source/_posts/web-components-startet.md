@@ -1,7 +1,7 @@
 ---
 title: Web Components 开发配置
 date: 2023-12-30 17:00:08
-tags: ["ISO", "Node.js"]
+tags: ["Web Components", "Solid.js", "Vite", "UnoCSS"]
 category: "技术向"
 ---
 
