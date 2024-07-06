@@ -10,9 +10,9 @@ export interface PostTocNode {
 const parseToc = (content: string): PostTocNode[] => {
     const html = parse(content);
     const toc: { name: string; children: { name: string }[] }[] = [];
-    html.querySelectorAll("h2,h3").forEach((h) => {
+    for (const h of html.querySelectorAll("h2,h3")) {
         const name = h.id;
-        const level = parseInt(h.tagName[1] ?? "", 10);
+        const level = Number.parseInt(h.tagName[1] ?? "", 10);
         if (level === 2) {
             toc.push({ name, children: [] });
         } else if (level === 3) {
@@ -21,7 +21,7 @@ const parseToc = (content: string): PostTocNode[] => {
                 last.children.push({ name });
             }
         }
-    });
+    }
     return toc;
 };
 

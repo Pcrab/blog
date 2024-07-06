@@ -1,8 +1,8 @@
-import { basename } from "path";
-import initDb from "../initDb";
-import type { PostSchema } from "../schemas";
+import { basename } from "node:path";
 import type { Dayjs } from "dayjs";
 import dayjs from "dayjs";
+import initDb from "../initDb";
+import type { PostSchema } from "../schemas";
 
 interface Post extends Omit<PostSchema, "date"> {
     tags: string[];
@@ -41,26 +41,30 @@ const getAllPosts = (): Post[] => {
     }
 
     const tags = db.Tag;
-    tags.forEach((tag) => {
+    for (const tag of tags) {
         const postIds = db.PostTag.filter((postTag) => {
             return tag._id === postTag.tag_id;
         }).map((postTag) => postTag.post_id);
-        const postWithThisTag = posts.filter((post) => postIds.includes(post._id));
-        postWithThisTag.forEach((post) => {
+        const postWithThisTag = posts.filter((post) =>
+            postIds.includes(post._id),
+        );
+        for (const post of postWithThisTag) {
             post.tags.push(tag.name);
-        });
-    });
+        }
+    }
 
     const categories = db.Category;
-    categories.forEach((category) => {
+    for (const category of categories) {
         const postIds = db.PostCategory.filter((postCategory) => {
             return category._id === postCategory.category_id;
         }).map((postCategory) => postCategory.post_id);
-        const postWithThisCategory = posts.filter((post) => postIds.includes(post._id));
-        postWithThisCategory.forEach((post) => {
+        const postWithThisCategory = posts.filter((post) =>
+            postIds.includes(post._id),
+        );
+        for (const post of postWithThisCategory) {
             post.category = category.name;
-        });
-    });
+        }
+    }
 
     __ALL_POSTS__ = posts;
     return __ALL_POSTS__;
@@ -90,4 +94,11 @@ const getPagePosts = (count: number): Post[] => {
 };
 
 export type { Post };
-export { getAllPosts, getAllPostSlugs, getLatestPosts, getPostBySlug, getPostPageCount, getPagePosts };
+export {
+    getAllPosts,
+    getAllPostSlugs,
+    getLatestPosts,
+    getPostBySlug,
+    getPostPageCount,
+    getPagePosts,
+};

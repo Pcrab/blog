@@ -1,7 +1,7 @@
 ---
-import type { InferGetStaticParamsType } from "astro";
-import { getAllPostSlugs, getPostBySlug } from "@utils/post/get";
 import Html from "@layouts/Html.astro";
+import { getAllPostSlugs, getPostBySlug } from "@utils/post/get";
+import type { InferGetStaticParamsType } from "astro";
 export const getStaticPaths = () => {
     const slugs = getAllPostSlugs();
     return slugs.map((slug) => {

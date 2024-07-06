@@ -1,7 +1,7 @@
+import sitemap from "@astrojs/sitemap";
+import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 import UnoCSS from "unocss/astro";
-import robotsTxt from "astro-robots-txt";
-import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({

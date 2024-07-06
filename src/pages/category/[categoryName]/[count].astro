@@ -5,8 +5,9 @@ import { getAllCategories, getCategoryByName } from "@utils/category/get";
 import type { InferGetStaticParamsType } from "astro";
 
 export const getStaticPaths = () => {
-    const finalPaths: { params: { categoryName: string; count: string } }[] = [];
-    getAllCategories().forEach((category) => {
+    const finalPaths: { params: { categoryName: string; count: string } }[] =
+        [];
+    for (const category of getAllCategories()) {
         const counts = category.posts.length / 10 + 1;
         Array.from({ length: counts }).forEach((_, index) => {
             finalPaths.push({
@@ -16,7 +17,7 @@ export const getStaticPaths = () => {
                 },
             });
         });
-    });
+    }
     return finalPaths;
 };
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;

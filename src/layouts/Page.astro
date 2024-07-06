@@ -1,8 +1,8 @@
 ---
-import Pagination from "../components/Pagination.astro";
-import Html from "./Html.astro";
 import type { Post } from "@utils/post/get";
+import Pagination from "../components/Pagination.astro";
 import PostCard from "../components/PostCard.astro";
+import Html from "./Html.astro";
 interface Props {
     title?: string;
     baseUrl: string;
@@ -10,8 +10,17 @@ interface Props {
     numberPerPage?: number;
     posts: Post[];
 }
-const { title, baseUrl, posts, current, numberPerPage = 10 } = Astro.props as Props;
-const finalPosts = posts.slice((current - 1) * numberPerPage, current * numberPerPage);
+const {
+    title,
+    baseUrl,
+    posts,
+    current,
+    numberPerPage = 10,
+} = Astro.props as Props;
+const finalPosts = posts.slice(
+    (current - 1) * numberPerPage,
+    current * numberPerPage,
+);
 ---
 
 <Html title={title ?? ""}>

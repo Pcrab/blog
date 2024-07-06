@@ -1,5 +1,5 @@
 {
-    "extends": ["@pcrab/configs-ts", "astro/tsconfigs/strictest"],
+    "extends": ["astro/tsconfigs/strictest"],
     "compilerOptions": {
         "baseUrl": ".",
         "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -18,5 +18,10 @@
             "@utils/*": ["src/utils/*"]
         }
     },
-    "include": ["src/**/*.astro", "src/**/*.ts", "src/**/*.tsx", "astro.config.ts"]
+    "include": [
+        "src/**/*.astro",
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "astro.config.ts"
+    ]
 }

@@ -1,12 +1,12 @@
 ---
-import TitleInfo from "../../../components/TitleInfo.astro";
 import Page from "@layouts/Page.astro";
 import { getAllTags, getTagByName } from "@utils/tag/get";
 import type { InferGetStaticParamsType } from "astro";
+import TitleInfo from "../../../components/TitleInfo.astro";
 
 export const getStaticPaths = () => {
     const finalPaths: { params: { tagName: string; count: string } }[] = [];
-    getAllTags().forEach((tag) => {
+    for (const tag of getAllTags()) {
         const counts = tag.posts.length / 10 + 1;
         Array.from({ length: counts }).forEach((_, index) => {
             finalPaths.push({
@@ -16,7 +16,7 @@ export const getStaticPaths = () => {
                 },
             });
         });
-    });
+    }
     return finalPaths;
 };
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;

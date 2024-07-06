@@ -1,6 +1,6 @@
 ---
-import { getAllPosts } from "@utils/post/get";
 import Page from "@layouts/Page.astro";
+import { getAllPosts } from "@utils/post/get";
 
 const posts = getAllPosts().map((post, index) => {
     return {

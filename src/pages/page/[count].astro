@@ -1,7 +1,7 @@
 ---
-import type { InferGetStaticParamsType } from "astro";
-import { getAllPosts, getPostPageCount } from "@utils/post/get";
 import Page from "@layouts/Page.astro";
+import { getAllPosts, getPostPageCount } from "@utils/post/get";
+import type { InferGetStaticParamsType } from "astro";
 export const getStaticPaths = () => {
     const counts: number[] = Array.from<number>({
         length: getPostPageCount(),
