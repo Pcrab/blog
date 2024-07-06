@@ -53,7 +53,6 @@ const post = getPostBySlug(slug);
     }
 </style>
 <Html title={post.title}>
-    <script src="/pissu-comment.js" type="module" defer async></script>
     <h1
         class="m-10 text-center lg:text-4xl sm:text-2xl text-2xl font-bold after:block after:content-['----------'] after:text-red-800 dark:after:text-red-100"
     >
@@ -69,5 +68,4 @@ const post = getPostBySlug(slug);
             > 进行许可。</span
         >
     </div>
-    <pissu-comment url="https://pissu-server.pcrab.workers.dev" id="comment"></pissu-comment>
 </Html>
