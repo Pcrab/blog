@@ -56,9 +56,6 @@
         "typescript": "^5.5.3",
         "unocss": "0.61.2"
     },
-    "engines": {
-        "pnpm": "^9.4.0"
-    },
     "hexo": {
         "version": "7.3.0"
     }
