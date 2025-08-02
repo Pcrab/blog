@@ -44,20 +44,13 @@ post_asset_folder: true
 relative_link: false
 future: true
 syntax_highlighter: "shiki"
-highlight:
-    auto_detect: false
-    line_number: true
-    tab_replace: ""
-    wrap: true
-    exclude_languages:
-    language_attr: false
-    hljs: false
-prismjs:
-    preprocess: true
-    line_number: true
-    tab_replace: ""
+highlight: false
+prismjs: false
 shiki:
-    theme: "css-variables"
+    # loadAllLanguages: true
+    themes:
+      light: "github-light"
+      dark: "github-dark"
 
 # Category & Tag
 default_category: uncategorized
