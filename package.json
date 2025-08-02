@@ -32,29 +32,29 @@
     "type": "module",
     "main": "index.js",
     "dependencies": {
-        "@astrojs/sitemap": "^3.1.6",
-        "@astrojs/tailwind": "^5.1.0",
-        "@tailwindcss/typography": "^0.5.13",
-        "astro": "^4.11.5",
+        "@astrojs/sitemap": "^3.4.2",
+        "@astrojs/tailwind": "^6.0.2",
+        "@tailwindcss/typography": "^0.5.16",
+        "astro": "^5.12.8",
         "astro-robots-txt": "^1.0.0",
-        "dayjs": "^1.11.11",
-        "hexo": "7.3.0",
-        "hexo-highlight-shiki": "^1.4.4",
-        "hexo-renderer-marked": "^6.3.0",
-        "node-html-parser": "^6.1.13",
+        "dayjs": "^1.11.13",
+        "hexo": "^7.3.0",
+        "hexo-highlight-shiki": "2.1.0",
+        "hexo-renderer-marked": "^7.0.1",
+        "node-html-parser": "^7.0.1",
         "posthtml": "^0.16.6",
-        "tailwindcss": "^3.4.4"
+        "tailwindcss": "^4.1.11"
     },
     "devDependencies": {
-        "@astrojs/ts-plugin": "^1.8.0",
-        "@commitlint/cli": "^19.3.0",
-        "@types/node": "^20.14.10",
-        "@unocss/reset": "0.61.2",
-        "husky": "^9.0.11",
-        "rimraf": "^5.0.8",
-        "syncpack": "^12.3.3",
-        "typescript": "^5.5.3",
-        "unocss": "0.61.2"
+        "@astrojs/ts-plugin": "^1.10.4",
+        "@commitlint/cli": "^19.8.1",
+        "@types/node": "^24.1.0",
+        "@unocss/reset": "66.3.3",
+        "husky": "^9.1.7",
+        "rimraf": "^6.0.1",
+        "syncpack": "^13.0.4",
+        "typescript": "^5.9.2",
+        "unocss": "66.3.3"
     },
     "hexo": {
         "version": "7.3.0"
@@ -66,10 +66,6 @@
             "hexo-highlight-shiki",
             "hexo-util",
             "sharp"
-        ],
-        "overrides": {
-            "hexo": "link:../hexo",
-            "hexo-highlight-shiki": "link:../hexo-highlight-shiki"
-        }
+        ]
     }
 }
