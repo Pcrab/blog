@@ -1,0 +1,5 @@
+allowBuilds:
+  esbuild: true
+  hexo-highlight-shiki: true
+  hexo-util: true
+  sharp: true

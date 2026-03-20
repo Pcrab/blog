@@ -1,6 +1,6 @@
 import { existsSync, unlinkSync } from "fs";
-import { join } from "path";
 import Hexo from "hexo";
+import { join } from "path";
 
 // const BASE_URL = "https://pcrab.xyz";
 
@@ -13,34 +13,34 @@ import Hexo from "hexo";
 // }
 
 const main = async () => {
-    const hexo = new Hexo(process.cwd(), {
-        silent: true,
-    });
-    console.log("Hexo created");
+	const hexo = new Hexo(process.cwd(), {
+		silent: true,
+	});
+	console.log("Hexo created");
 
-    const dbPath = join(hexo.base_dir, "db.json");
-    if (existsSync(dbPath)) {
-        unlinkSync(dbPath);
-    }
-    console.log("DB initializing");
+	const dbPath = join(hexo.base_dir, "db.json");
+	if (existsSync(dbPath)) {
+		unlinkSync(dbPath);
+	}
+	console.log("DB initializing");
 
-    await hexo.init();
+	await hexo.init();
 
-    hexo.extend.filter.register("marked:renderer", (renderer) => {
-        renderer.link = (href, _, text) => {
-            return `<a href="${href}" target="_blank">${text}</a>`;
-        };
+	hexo.extend.filter.register("marked:renderer", (renderer) => {
+		renderer.link = ({ href, text }) => {
+			return `<a href="${href}" target="_blank">${text}</a>`;
+		};
 
-        return renderer;
-    });
+		return renderer;
+	});
 
-    await hexo.load(null);
-    console.log("Hexo initialized");
+	await hexo.load(null);
+	console.log("Hexo initialized");
 
-    if (hexo.env.init && hexo._dbLoaded) {
-        await hexo.database.save();
-    }
-    console.log("Finish");
+	if (hexo.env.init && hexo._dbLoaded) {
+		await hexo.database.save();
+	}
+	console.log("Finish");
 };
 
 void main();
